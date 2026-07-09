@@ -1,0 +1,405 @@
+/* Mengatur ulang jarak bawaan browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+section, main, footer {
+    scroll-margin-top: 80px;
+}
+body {
+    background-color: #f4f7f9; /* Warna abu-abu kebiruan terang seperti di gambar */
+    color: #333;
+}
+
+/* --- TATA LETAK NAVBAR --- */
+header {
+    display: flex; /* Membuat Logo, Menu, dan Ikon berjajar menyamping */
+    justify-content: space-between; /* Memberi jarak maksimal di antara ketiganya */
+    align-items: center; /* Memastikan semuanya sejajar secara vertikal di tengah */
+    padding: 30px 80px;
+    background-color: #ffffff;
+}
+
+nav ul {
+    display: flex; /* Membuat daftar menu (Home, About) berjajar menyamping */
+    list-style: none; /* Menghilangkan titik-titik bawaan list */
+    gap: 30px; /* Jarak antar menu */
+}
+
+nav ul li a {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: #555;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3 ease;
+}
+
+nav ul i a:hover{
+    color: #000;
+}
+
+.social-links {
+    display: flex;
+    align-items: center; /* Memastikan semua ikon sejajar rapi di tengah secara vertikal */
+    gap: 15px;
+}
+
+.social-links img{
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: translateY(-3px); /* Ikon sedikit melayang ke atas */
+    opacity: 0.8;
+}
+/* --- TATA LETAK HERO SECTION --- */
+.hero-section {
+    display: flex; /* Membuat Teks dan Foto berjajar menyamping */
+    align-items: center; 
+    justify-content: space-between;
+    padding: 50px 100px;
+    height: 85vh; /* Mengambil 85% tinggi layar */
+}
+
+/* Mengatur area teks agar mengambil setengah layar */
+.hero-text {
+    flex: 1; 
+}
+
+.hero-text p {
+    font-size: 24px;
+    color: #555;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.hero-text h2 {
+    font-size: 30px;
+    font-weight: normal;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* Mengatur tombol download */
+.btn-download{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 14px;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3 ease;
+}
+
+.btn-download:hover{
+    background-color: #333;
+    color: #fff;
+}
+
+/* Mengatur area foto */
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 40%;
+    border-radius: 15px;
+    transition: transform 0.1 ease-in-out;;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Gaya untuk tombol mode gelap */
+.btn-dark-mode {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.btn-dark-mode:hover {
+    transform: rotate(20deg);
+}
+
+/* Skema warna mode gelap */
+body.dark-mode{
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+}
+
+/* Gaya untuk teks dan tombol di mode gelap */
+body.dark-mode .logo,
+body.dark-mode nav ul li a,
+body.dark-mode .hero-text p,
+body.dark-mode .hero-text h1,
+body.dark-mode .hero-text h2 {
+    color: #e0e0e0;
+}
+
+/* mengubah warna tombol download di mode gelap */
+body.dark-mode .btn-download {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-download:hover {
+    background-color: #e0e0e0;
+    color: #121212;
+}
+
+/* Membalikkan warna ikon sosial media di mode gelap */
+body.dark-mode .social-links img {
+    filter: invert(1);
+}
+
+/* Tata letak section portfolio */
+.portfolio-section {
+    padding: 50px 100px;
+}
+
+.section-title {
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+    width: 100%;
+}
+
+/* area tombol filter */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border: 2px solid #333;
+    background-color: none;
+    cursor: pointer;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* area kotak gallery */
+.portfolio-gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.portfolio-item{
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    width: 320px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+}
+
+/* class khusus untuk menyembunyikan kotak saat di filter */
+.hide {
+    display: none;
+}
+
+/* dukungan dark mode untuk area portfolio */
+body.dark-mode .portfolio-item {
+    background-color: #1e1e1e;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .filter-btn {
+    background-color: transparent; /* Latar belakang tembus pandang */
+    color: #e0e0e0; /* Teks warna putih/terang */
+    border: 2px solid #e0e0e0;
+}
+
+/* 2. Tombol Aktif (Sedang dipilih) atau saat disentuh mouse di Dark Mode */
+body.dark-mode .filter-btn.active, 
+body.dark-mode .filter-btn:hover {
+    background-color: #e0e0e0; /* Berubah jadi terang */
+    color: #121212;
+}
+
+/* tata letak about me */
+.about-section {
+    padding: 50px 100px;
+    background-color: #ffffff;
+}
+
+.about-text p {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #555;
+    font-size: 18px;
+}
+
+.tech-stack { 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 23px;
+    margin-top: 25px;
+}
+
+.tech-badge {
+    background-color: #f4f7f9;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/* dark mode untuk about me */
+body.dark-mode .about-section {
+    background-color: #121212;
+}
+
+body.dark-mode .about-content {
+    color: #b0b0b0;
+}
+
+body.dark-mode .tech-badge {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #333;
+}
+
+/* tata letak contact */
+.contact-section {
+    padding: 80px 100px 30px;;
+    text-align: center;
+    background-color: #f4f7f9;
+}
+
+.contact-section p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.footer-bottom {
+    margin-top: 80px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #777;
+}
+
+/* dark mode untuk contact */
+body.dark-mode .contact-section {
+    background-color: #121212;
+}
+
+body.dark-mode .contact-section p, body.dark-mode .footer-bottom {
+    color: #b0b0b0;
+}
+
+body.dark-mode .footer-bottom {
+    border-top: 1px solid #333;
+}
+
+/* menambahkan kode tampilan reskonsif untuk HP */
+
+@media screen and (max-width: 768px) {
+
+    header{
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        height: auto;
+        position: relative;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .social-links {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .about-section, .portfolio-section, .contact-section {
+        padding: 50px 20px;
+    }
+
+    .portfolio-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .portfolio-item {
+        width: 100%;
+    }
+
+    .filter-buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
